@@ -6,8 +6,6 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
 import com.netflix.config.ConfigurationManager;
 // arcaius
 import com.netflix.config.DynamicBooleanProperty;
@@ -16,7 +14,7 @@ import com.netflix.config.DynamicLongProperty;
 import com.netflix.config.DynamicPropertyFactory;
 import com.netflix.config.jmx.ConfigJMXManager;
 
-public class ConfigurableServiceImpl implements Service {
+public class ConfigurableServiceImpl implements NamedService {
     private final String name;
     private final Logger logger;
     private final Random randomGenerator = new Random();
@@ -43,7 +41,7 @@ public class ConfigurableServiceImpl implements Service {
     }
 
     @Override
-    public String getValue() {
+    public String execute() {
         logger.trace("Method serve() called");
 
         logCurrentPropertyValues();
@@ -63,7 +61,7 @@ public class ConfigurableServiceImpl implements Service {
 
     private void checkIfBlocked() {
         if (blocked.get()) {
-            logger.debug("Service is blocked!");
+            logger.debug("NamedService is blocked!");
             long start = System.currentTimeMillis();
 
             while (blocked.get()) {
@@ -90,5 +88,10 @@ public class ConfigurableServiceImpl implements Service {
         } catch (InterruptedException e) {
             // do nothing
         }
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 }

@@ -5,15 +5,17 @@ import ratpack.handling.Handler;
 
 public class ParameterizedHandler implements Handler {
 
-    private final Service service;
+    private final NamedService service;
 
-    public ParameterizedHandler(Service service) {
+    public ParameterizedHandler(NamedService service) {
         this.service = service;
     }
 
     @Override
     public void handle(Context context) throws Exception {
-        context.getResponse().send("service value: " + service.getValue());
+        final NamedServiceCommand namedServiceCommand = new NamedServiceCommand(service);
+        final String value = namedServiceCommand.execute();
+        context.getResponse().send("service value: " + value);
     }
 
 }

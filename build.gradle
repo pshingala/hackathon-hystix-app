@@ -50,7 +50,8 @@ dependencies {
   testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
   testCompile 'junit:junit:4.12'
   compile ratpack.dependency("guice")
-  compile ratpack.dependency("hystrix")
+  //compile ratpack.dependency("hystrix")
+  compile "com.netflix.hystrix:hystrix-core:1.4.1"
   compile "com.netflix.archaius:archaius-core:0.6.5"
 }
 
