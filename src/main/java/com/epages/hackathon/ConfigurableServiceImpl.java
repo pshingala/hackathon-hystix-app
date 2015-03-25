@@ -44,7 +44,7 @@ public class ConfigurableServiceImpl implements NamedService {
     public String execute() {
         logger.trace("Method serve() called");
 
-        logCurrentPropertyValues();
+       // logCurrentPropertyValues();
 
         checkIfBlocked();
         delay();
@@ -52,12 +52,12 @@ public class ConfigurableServiceImpl implements NamedService {
         return name;
     }
 
-    private void logCurrentPropertyValues() {
-        System.out.println("blocked:" + blocked.get());
-        System.out.println("blockedCheckTimeout:" + blockedCheckTimeout.get());
-        System.out.println("averageLatency:" + averageLatency.get());
-        System.out.println("latencyVariation:" + latencyVariation.get());
-    }
+//    private void logCurrentPropertyValues() {
+//        System.out.println("blocked:" + blocked.get());
+//        System.out.println("blockedCheckTimeout:" + blockedCheckTimeout.get());
+//        System.out.println("averageLatency:" + averageLatency.get());
+//        System.out.println("latencyVariation:" + latencyVariation.get());
+//    }
 
     private void checkIfBlocked() {
         if (blocked.get()) {

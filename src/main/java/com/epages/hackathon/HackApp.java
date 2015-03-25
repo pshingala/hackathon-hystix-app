@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ratpack.guice.Guice;
+import ratpack.hystrix.HystrixMetricsEventStreamHandler;
+import ratpack.hystrix.HystrixModule;
 import ratpack.server.RatpackServer;
 import ratpack.server.ServerConfig;
 
@@ -15,7 +17,7 @@ public class HackApp {
         try {
             RatpackServer.of(b -> b
                     .serverConfig(ServerConfig.findBaseDirProps())
-                            .registry(Guice.registry(bindingSpec -> bindingSpec.add(new HackModule())))
+                            .registry(Guice.registry(bindingSpec -> bindingSpec.add(new HackModule()).add(new HystrixModule().sse())))
                             .handlers(chain -> chain
                                             .prefix("services", nested -> {
                                                 nested
@@ -24,6 +26,7 @@ public class HackApp {
                                                         .handler("b", new ParameterizedHandler(new ConfigurableServiceImpl("b")));
                                             })
                                             .prefix("static", nested -> nested.assets("public/images"))
+                                            .get("hystrix.stream", new HystrixMetricsEventStreamHandler())
                                             .handler(context -> context.render("root handler!"))
                             )
             ).start();
