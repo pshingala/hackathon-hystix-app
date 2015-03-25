@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.6" jmeter="2.11 r1554548">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Testplan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Benutzer definierte Variablen" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="true"/>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="GLOBAL DEFAULTS" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="EPJHOST" elementType="Argument">
+              <stringProp name="Argument.name">EPJHOST</stringProp>
+              <stringProp name="Argument.value">${__P(EPJHOST,localhost)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="EPJPORT" elementType="Argument">
+              <stringProp name="Argument.name">EPJPORT</stringProp>
+              <stringProp name="Argument.value">${__P(EPJPORT,5050)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="DATADIR" elementType="Argument">
+              <stringProp name="Argument.name">DATADIR</stringProp>
+              <stringProp name="Argument.value">${__P(DATADIR,./data/)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Trailing slash needed</stringProp>
+            </elementProp>
+            <elementProp name="LOGDIR" elementType="Argument">
+              <stringProp name="Argument.name">LOGDIR</stringProp>
+              <stringProp name="Argument.value">${__P(LOGDIR,./logs/)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Trailing slash needed</stringProp>
+            </elementProp>
+            <elementProp name="GUIDFILE" elementType="Argument">
+              <stringProp name="Argument.name">GUIDFILE</stringProp>
+              <stringProp name="Argument.value">${__P(GUIDFILE,guid-teststore.txt)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="DURATION_ASSERTION" elementType="Argument">
+              <stringProp name="Argument.name">DURATION_ASSERTION</stringProp>
+              <stringProp name="Argument.value">${__P(MAX_DURATION,300)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="VERSION" elementType="Argument">
+              <stringProp name="Argument.name">VERSION</stringProp>
+              <stringProp name="Argument.value">${__P(VERSION,SNAPSHOT)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="TIMESTAMP" elementType="Argument">
+              <stringProp name="Argument.name">TIMESTAMP</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd_HH-mm,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SUGGESTFILE" elementType="Argument">
+              <stringProp name="Argument.name">SUGGESTFILE</stringProp>
+              <stringProp name="Argument.value">${__P(SUGGESTFILE,suggest-teststore.txt)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="CHECK_INDEX_STATUS" elementType="Argument">
+              <stringProp name="Argument.name">CHECK_INDEX_STATUS</stringProp>
+              <stringProp name="Argument.value">${__P(CHECK_INDEX_STATUS,true)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SOLR_MASTER_HOST" elementType="Argument">
+              <stringProp name="Argument.name">SOLR_MASTER_HOST</stringProp>
+              <stringProp name="Argument.value">${__P(SOLR_MASTER_HOST,localhost)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SOLR_MASTER_PORT" elementType="Argument">
+              <stringProp name="Argument.name">SOLR_MASTER_PORT</stringProp>
+              <stringProp name="Argument.value">${__P(SOLR_MASTER_PORT,8983)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SOLR_SLAVE_HOST" elementType="Argument">
+              <stringProp name="Argument.name">SOLR_SLAVE_HOST</stringProp>
+              <stringProp name="Argument.value">${__P(SOLR_SLAVE_HOST,localhost)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SOLR_SLAVE_PORT" elementType="Argument">
+              <stringProp name="Argument.name">SOLR_SLAVE_PORT</stringProp>
+              <stringProp name="Argument.value">${__P(SOLR_MASTER_PORT,8985)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="USE_SOLR_SLAVE" elementType="Argument">
+              <stringProp name="Argument.name">USE_SOLR_SLAVE</stringProp>
+              <stringProp name="Argument.value">${__P(USE_SOLR_SLAVE,false)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="MAX_THREADS" elementType="Argument">
+              <stringProp name="Argument.name">MAX_THREADS</stringProp>
+              <stringProp name="Argument.value">${__P(MAX_THREADS,30)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SEARCHFILE" elementType="Argument">
+              <stringProp name="Argument.name">SEARCHFILE</stringProp>
+              <stringProp name="Argument.value">${__P(SEARCHFILE,search-teststore.txt)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="MAX_INDEX_THREADS" elementType="Argument">
+              <stringProp name="Argument.name">MAX_INDEX_THREADS</stringProp>
+              <stringProp name="Argument.value">${__P(MAX_INDEX_THREADS,4)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Keep in sync with load-med.properties</stringProp>
+            </elementProp>
+            <elementProp name="MAX_PDF_THREADS" elementType="Argument">
+              <stringProp name="Argument.name">MAX_PDF_THREADS</stringProp>
+              <stringProp name="Argument.value">${__P(MAX_PDF_THREADS,10)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Keep in sync with load-med.properties</stringProp>
+            </elementProp>
+            <elementProp name="MAX_SEARCH_THREADS" elementType="Argument">
+              <stringProp name="Argument.name">MAX_SEARCH_THREADS</stringProp>
+              <stringProp name="Argument.value">${__P(MAX_SEARCH_THREADS,50)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Keep in sync with load-med.properties</stringProp>
+            </elementProp>
+            <elementProp name="MAX_SUGGEST_THREADS" elementType="Argument">
+              <stringProp name="Argument.name">MAX_SUGGEST_THREADS</stringProp>
+              <stringProp name="Argument.value">${__P(MAX_SUGGEST_THREADS,50)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Keep in sync with load-med.properties</stringProp>
+            </elementProp>
+            <elementProp name="TIMER_RAND" elementType="Argument">
+              <stringProp name="Argument.name">TIMER_RAND</stringProp>
+              <stringProp name="Argument.value">100</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Defaults, overwrite per test</stringProp>
+            </elementProp>
+            <elementProp name="TIMER_CONST" elementType="Argument">
+              <stringProp name="Argument.name">TIMER_CONST</stringProp>
+              <stringProp name="Argument.value">100</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Defaults, overwrite per test</stringProp>
+            </elementProp>
+            <elementProp name="DSNAME" elementType="Argument">
+              <stringProp name="Argument.name">DSNAME</stringProp>
+              <stringProp name="Argument.value">${__P(DSNAME, TestStore)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PRODUCT_GUIDFILE" elementType="Argument">
+              <stringProp name="Argument.name">PRODUCT_GUIDFILE</stringProp>
+              <stringProp name="Argument.value">${__P(PRODUCT_GUIDFILE, product-guids.txt)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="THREAD_STEP" elementType="Argument">
+              <stringProp name="Argument.name">THREAD_STEP</stringProp>
+              <stringProp name="Argument.value">${__P(THREAD_STEP,10)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <kg.apc.jmeter.reporters.AutoStop guiclass="kg.apc.jmeter.reporters.AutoStopGui" testclass="kg.apc.jmeter.reporters.AutoStop" testname="AutoStop Listener" enabled="true">
+          <stringProp name="avg_response_time">10000</stringProp>
+          <stringProp name="avg_response_time_length">10</stringProp>
+          <stringProp name="error_rate">50</stringProp>
+          <stringProp name="error_rate_length">10</stringProp>
+          <stringProp name="avg_response_latency">5000</stringProp>
+          <stringProp name="avg_response_latency_length">10</stringProp>
+        </kg.apc.jmeter.reporters.AutoStop>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
