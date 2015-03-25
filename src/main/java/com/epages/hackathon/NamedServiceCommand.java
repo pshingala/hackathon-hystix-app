@@ -13,9 +13,7 @@ public class NamedServiceCommand extends HystrixCommand<String> {
     private NamedService service;
 
     public NamedServiceCommand(NamedService service) {
-        super(Setter //
-                .withGroupKey(HystrixCommandGroupKey.Factory.asKey(service.getName())) //
-                .andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(10)));
+        super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey(service.getName())));
         this.service = service;
     }
 
